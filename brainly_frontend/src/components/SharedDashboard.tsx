@@ -30,7 +30,7 @@ function SharedDashboard() {
     const [loginVisible, setLoginVisible] = useState(false);
 
   async function fetchCardData(){
-      const response = await fetch(`https://brainly-backend-sigma.vercel.app/api/v1/brain/${sharableLink}`, {
+      const response = await fetch(`https://brainly-backend-sepia.vercel.app/api/v1/brain/${sharableLink}`, {
         method: 'GET'
       }) 
 

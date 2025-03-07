@@ -68,7 +68,7 @@ export default function CreateContentModal(props: ModalProps) {
     async function submitHandler(){
         setIsLoading(false);
         const token  = localStorage.getItem("Authorization")
-        const response = await fetch("https://brainly-backend-sigma.vercel.app/api/v1/content", {
+        const response = await fetch("https://brainly-backend-sepia.vercel.app/api/v1/content", {
             method: "POST",
             headers: new Headers({
                 "Content-Type": "application/json",
