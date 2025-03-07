@@ -73,7 +73,7 @@ function Dashboard() {
         console.log("Please Re-login");
         return [];
       }
-      const response = await fetch('http://localhost:3001/api/v1/content', {
+      const response = await fetch('https://brainly-backend-sigma.vercel.app/api/v1/content', {
         method: "GET",
         headers: { "Authorization": token }
       });
@@ -94,7 +94,7 @@ function Dashboard() {
         return false;
       }
 
-      const response = await fetch('http://localhost:3001/api/v1/me', {
+      const response = await fetch('https://brainly-backend-sigma.vercel.app/api/v1/me', {
         method: "POST",
         headers: { "authorization": token }
       });
@@ -137,7 +137,7 @@ function Dashboard() {
     const loggedInUserData = await userCheck();
     if (loggedInUserData) {
       const token = localStorage.getItem("Authorization");
-      const response = await fetch('http://localhost:3001/api/v1/brain/share', {
+      const response = await fetch('https://brainly-backend-sigma.vercel.app/api/v1/brain/share', {
         method: "PUT",
         headers: new Headers({
           "authorization": token || '',

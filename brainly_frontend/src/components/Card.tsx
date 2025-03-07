@@ -69,7 +69,7 @@ export default function Card(props: cardProps){
           }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/v1/content/${propId}`, {
+            const response = await fetch(`https://brainly-backend-sigma.vercel.app/api/v1/content/${propId}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": token,

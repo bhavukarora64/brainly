@@ -94,7 +94,7 @@ export default function Authentication(props: ModalProps) {
 
     async function submitLoginHandler(){
         setIsLoading(false)
-        const result = await fetch("http://localhost:3001/api/v1/signin", {
+        const result = await fetch("https://brainly-backend-sigma.vercel.app/api/v1/signin", {
             method: "POST",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -112,7 +112,7 @@ export default function Authentication(props: ModalProps) {
             localStorage.setItem('Authorization', response.Authorization);
             setLoggedIn(true)
             alert(response.message)
-            window.location.href = 'http://localhost:5173/dashboard';
+            window.location.href = 'https://brainly-three-jade.vercel.app/dashboard';
 
         }else{
             setIsLoading(true)
@@ -122,7 +122,7 @@ export default function Authentication(props: ModalProps) {
 
     async function submitRegisterHandler(){
         setIsLoading(false)
-        const result = await fetch("http://localhost:3001/api/v1/signup", {
+        const result = await fetch("https://brainly-backend-sigma.vercel.app/api/v1/signup", {
             method: "POST",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -137,7 +137,7 @@ export default function Authentication(props: ModalProps) {
 
         if(response.success === 1){
             alert(response.message)
-            window.location.href = 'http://localhost:5173/dashboard';
+            window.location.href = 'https://brainly-three-jade.vercel.app/dashboard';
 
         }else{
             setIsLoading(true)
