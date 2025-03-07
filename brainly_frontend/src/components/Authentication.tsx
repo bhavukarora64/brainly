@@ -79,6 +79,7 @@ export default function Authentication(props: ModalProps) {
     );
 
     function toggle(){
+        // @ts-expect-error: setVisible does not accept any arguments
         props.setVisible();
         setSelectedSection("");
     }

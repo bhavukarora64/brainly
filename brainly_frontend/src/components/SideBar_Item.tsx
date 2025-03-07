@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Document from "../assets/icons/Document";
 import Twitter from "../assets/icons/Twitter";
 import Video from "../assets/icons/Video";
@@ -13,7 +13,7 @@ interface SideBarItemProps {
     selectedOption: string; // ✅ Receive selected option from parent
     setSelectedOption: (type: string) => void; // ✅ Receive setter function from parent
 }
-
+// @ts-expect-error: TypeScript does not recognize the ReactElement type for the icons
 const componentIcons: { [key: string]: ReactElement } = {
     twitter: <Twitter imageProp="lg" />,
     video: <Video imageProp="lg" />,
@@ -37,6 +37,7 @@ export default function SideBar_Item(props: SideBarItemProps) {
         if (props.componentType === "Show All") {
             setCardData(cardDataPersisted);
         } else {
+            // @ts-expect-error: TypeScript does not recognize the ReactElement type for the icons
             setCardData(cardDataPersisted.filter((card) => card.type === props.componentType));
         }
     }

@@ -49,7 +49,8 @@ export default function CreateContentModal(props: ModalProps) {
     );
 
     function toggle(){
-        props.setVisible();
+
+        props.setVisible(false);
     }
 
     function toogletypes(element: string){

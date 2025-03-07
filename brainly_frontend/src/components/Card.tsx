@@ -86,8 +86,8 @@ export default function Card(props: cardProps){
     
             const result = await response.json();
             alert(result.message);
-    
-            setCardData(cardData.filter((card) => card.contentId != propId))
+            
+            setCardData(cardData.filter((card: { contentId: string }) => card.contentId != propId))
     
         } catch (error) {
             console.error("Network error:", error);

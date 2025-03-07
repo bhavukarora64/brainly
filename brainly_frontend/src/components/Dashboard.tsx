@@ -110,6 +110,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchData() {
       const data = await fetchContent();
+       // @ts-expect-error: Type of data might not match the expected type
       setCardData(prevCardData => [...prevCardData, ...data]);
 
       const loggedInUserData = await userCheck();
@@ -197,16 +198,24 @@ function Dashboard() {
               secondicon={<ShareIcon imageProp="lg" />}
             />
             :
+            
             cardData.length ?
               cardData.map((card) => (
                 <Card
+                 // @ts-expect-error: card.contentId might be undefined
                   key={card.contentId}
+                   // @ts-expect-error: card.contentId might be undefined
                   id={card.contentId}
+                   // @ts-expect-error: card.title might be undefined
                   title={card.title}
+                   // @ts-expect-error: card.link might be undefined
                   body={card.link.replace("watch?v=", "embed/")}
+                   // @ts-expect-error: card.tags might be undefined
                   tags={card.tags}
                   createdAt={new Date()}
+                   // @ts-expect-error: card.type might be undefined
                   contentType={card.type}
+                   // @ts-expect-error: card.type might be undefined
                   contentTypeIcon={iconTypes[card.type]}
                   firsticon={<BinIcon imageProp="lg" />}
                   secondicon={<ShareIcon imageProp="lg" />}

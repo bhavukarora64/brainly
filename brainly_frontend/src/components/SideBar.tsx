@@ -3,7 +3,7 @@ import Brain from "../assets/icons/Brain";
 import SideBar_Item from "./SideBar_Item";
 
 
-export default function SideBar(props){
+export default function SideBar(){
     const [selectedOption, setSelectedOption] = useState<string>("Show All");
     return (
         <div className="h-screen ">

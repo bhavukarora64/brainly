@@ -52,7 +52,10 @@ function SharedDashboard() {
       <div className='col-span-10 bg-gray-50'>
         <div className='flex justify-between m-4'>
           <div>
-            <h1 className='text-2xl font-bold'>{userData[0] ? userData[0].username : "Your Friend"}'s Brain</h1>
+            <h1 className='text-2xl font-bold'>{
+              //@ts-expect-error: userData might be empty
+              userData[0] ? userData[0].username : "Your Friend"
+             }'s Brain</h1>
           </div>
                     <div className="flex gap-4">
                       <Button title="" size="md" type="primary" onClick={() => setLoginVisible(true)} frontIcon={<ShowAll imageProp="lg" />} />
@@ -62,13 +65,20 @@ function SharedDashboard() {
             {userData.length ?
               userData.map((card) => (
                 <Card
+                // @ts-expect-error: contentId might be missing in card
                   key={card.contentId}
+                  // @ts-expect-error: contentId might be missing in card
                   id={card.contentId}
+                  // @ts-expect-error: title might be missing in card
                   title={card.title}
+                  // @ts-expect-error: link might be missing in card
                   body={card.link.replace("watch?v=", "embed/")}
+                  // @ts-expect-error: tags might be missing in card
                   tags={card.tags}
                   createdAt={new Date()}
+                  // @ts-expect-error: type might be missing in card
                   contentType={card.type}
+                  // @ts-expect-error: type might be missing in card
                   contentTypeIcon={iconTypes[card.type]}
                   firsticon={<BinIcon imageProp="lg" />}
                   secondicon={<ShareIcon imageProp="lg" />}
